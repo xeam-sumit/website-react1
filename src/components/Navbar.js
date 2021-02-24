@@ -3,19 +3,22 @@ import { NavLink } from "react-router-dom"
 
 const Navbar = ({ header, isSticky }) => {
   let NavBar = useRef()
+
   const handleClick = (e) => {
-    let item = e.currentTarget;
-    item.closest(".menu-body").classList.remove("show");
-    e.preventDefault();
-    // navigate to specific path
-    const id = item.getAttribute("href").slice(1)
-    const section = document.getElementById(id)
-    let position = section.offsetTop;
-    let NavBarHeight = NavBar.current.offsetHeight
-    window.scrollTo({
-      left: 0,
-      top: (position - NavBarHeight)
-    })
+    if (header === "headerHome") {
+      let item = e.currentTarget;
+      item.closest(".menu-body").classList.remove("show");
+      e.preventDefault();
+      // navigate to specific path
+      const id = item.getAttribute("href").slice(1)
+      const section = document.getElementById(id)
+      let position = section.offsetTop;
+      let NavBarHeight = NavBar.current.offsetHeight
+      window.scrollTo({
+        left: 0,
+        top: (position - NavBarHeight)
+      })
+    }
   }
   return (
     <div ref={NavBar} className={isSticky ? `${header} navbar-sticky` : `${header}`}>
@@ -27,7 +30,6 @@ const Navbar = ({ header, isSticky }) => {
           aria-label="Toggle navigation"
         >
           <i className="fas fa-bars"></i>
-          {/* <span class="navbar-toggler-icon"></span> */}
         </button>
 
         <div className="menu-body collapse navbar-collapse" id="navbarSupportedContent"
@@ -36,9 +38,12 @@ const Navbar = ({ header, isSticky }) => {
             <li id="navLink"
               className="nav-item"
             >
-              <a href="#home" activeclassname="menu_active" className="nav-link active" aria-current="page"
-                onClick={handleClick}
-              >HOME</a>
+              {
+                (header === "headerHome") ? <a href="#home" activeclassname="menu_active" className="nav-link active" aria-current="page"
+                  onClick={handleClick}
+                >HOME</a> : <NavLink to="/" exact activeclassname="menu_active" className="nav-link active" aria-current="page"
+                  onClick={handleClick}>HOME</NavLink>
+              }
             </li>
             <li id="navLink"
               className="nav-item"

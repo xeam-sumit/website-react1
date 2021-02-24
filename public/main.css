@@ -196,8 +196,8 @@ a:hover {
   z-index: 10;
 }
 
-/* 
-.headerBook .nav-link.active {
+
+/* .headerBook .nav-link.active {
   color: rgba(26, 89, 156) !important;
 } */
 
@@ -819,14 +819,6 @@ footer.footer1 {
     right: 80px;
     width: 200px;
   }
-
-  .headerBook .demo-button {
-    position: absolute;
-    top: 25px;
-    right: 80px;
-    width: 200px;
-  }
-
 
   .banner-body h1 {
     font-size: 3rem;
