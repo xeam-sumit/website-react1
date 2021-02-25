@@ -195,7 +195,6 @@ a:hover {
   z-index: 10;
 }
 
-
 /* .headerBook .nav-link.active {
   color: rgba(26, 89, 156) !important;
 } */
@@ -259,7 +258,7 @@ a:hover {
 .banner-body a {
   color: #fff;
   background-color: rgb(87, 181, 180);
-  padding: 0.23rem 2.8rem;
+  padding: 0.23rem 2.5rem;
   font-size: 2rem;
   border: 2px solid #fff;
   border-radius: 30px;
